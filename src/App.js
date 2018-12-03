@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GetGames from './GetGames.js';
+import GetRatings from './GetRatings.js'
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom'
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <h1> IGDB </h1>
+      <RouterCode/>
+        <br/>
       </div>
     );
   }
 }
 
 export default App;
+
+function RouterCode() {
+  return (
+  <Router>
+      <div>
+          <hr />
+          <Route exact path= "/" component={GetGames} />
+          <Route path= "/getAllRatings" component={GetRatings}/>
+      </div>
+  </Router>
+);
+}
